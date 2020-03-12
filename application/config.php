@@ -142,7 +142,7 @@ return [
 
     // 视图输出字符串内容替换
     'view_replace_str'       => [
-        '__STATIC__'=>'static',
+        '__STATIC__'=>'/erciyuan/public/static',
         '__ADMIN__'=>'/erciyuan/public/index.php/admin',
         '__INDEX__'=>'/erciyuan/public/index.php/index'
     ],
