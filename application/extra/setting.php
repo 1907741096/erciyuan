@@ -7,7 +7,7 @@
  */
 return [
     'page_count'=>15,
-    'img_prefix'  => '/erciyuan/Public',
+    'img_prefix'  => '/erciyuan/public',
     'token_expire_in'=>7200,
     'md5_pre'=>'ecy_',
     'default_style'=>1,
