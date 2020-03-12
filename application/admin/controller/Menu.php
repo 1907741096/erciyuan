@@ -20,8 +20,8 @@ class Menu extends Base
     }
     public function add(){
         $menu='';
-        if(!is_array(validate('Menu')->goCheck('id'))){
-            $menu=model('Menu')->find(input('id'));
+        if(!is_array(validate('menu')->goCheck('id'))){
+            $menu=model('menu')->find(input('id'));
         }
         $this->assign('menu',$menu);
         $this->assign('nav','addmenu');
@@ -29,9 +29,9 @@ class Menu extends Base
     }
     public function save(){
         if(input('id')){
-            $data=validate('Menu')->goCheck('edit');
+            $data=validate('menu')->goCheck('edit');
             if(!is_array($data)){
-                $menu=model('Menu')->isUpdate(true)->save(request()->param());
+                $menu=model('menu')->isUpdate(true)->save(request()->param());
                 if($menu){
                     return json(['status'=>1,'message'=>'修改成功']);
                 }else{
@@ -41,9 +41,9 @@ class Menu extends Base
                 return json($data);
             }
         }else{
-            $data=validate('Menu')->goCheck('add');
+            $data=validate('menu')->goCheck('add');
             if(!is_array($data)){
-                $menu=model('Menu')->create(request()->param());
+                $menu=model('menu')->create(request()->param());
                 if($menu){
                     return json(['status'=>1,'message'=>'添加成功']);
                 }else{
@@ -56,9 +56,9 @@ class Menu extends Base
         }
     }
     public function status(){
-        $data=validate('Menu')->goCheck('status');
+        $data=validate('menu')->goCheck('status');
         if(!is_array($data)){
-            $menu=model('Menu')->isUpdate(true)->save(request()->param());
+            $menu=model('menu')->isUpdate(true)->save(request()->param());
             if($menu){
                 return json(['status'=>1,'message'=>'操作成功']);
             }else{

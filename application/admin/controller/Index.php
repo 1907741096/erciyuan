@@ -15,7 +15,7 @@ class Index extends Base
 {
     public function index(){
         $status['status']=array('neq',-1);
-        $news_count=model('News')->where($status)->count();
+        $news_count=model('news')->where($status)->count();
         $user_count=model('User')->where($status)->count();
         $sound_count=model('Sound')->where($status)->count();
         $style_count=model('Style')->where($status)->count();

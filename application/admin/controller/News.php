@@ -36,8 +36,8 @@ class News extends Base
         $menus=model('menu')->all($status);
         $this->assign('menus',$menus);
         $news='';$menu_id='';
-        if(!is_array(validate('News')->goCheck('id'))){
-            $news=model('News')->find(input('id'));
+        if(!is_array(validate('news')->goCheck('id'))){
+            $news=model('news')->find(input('id'));
             $menu_id=$news['menu_id'];
         }
         $this->assign('menu_id',$menu_id);
@@ -47,11 +47,11 @@ class News extends Base
     }
     public function save(){
         if(input('id')){
-            $data=validate('News')->goCheck('edit');
+            $data=validate('news')->goCheck('edit');
             if(!is_array($data)){
                 $d=request()->param();
                 $d['update_time']=time();
-                $news=model('News')->isUpdate(true)->save($d);
+                $news=model('news')->isUpdate(true)->save($d);
                 if($news){
                     return json(['status'=>1,'message'=>'修改成功']);
                 }else{
@@ -61,12 +61,12 @@ class News extends Base
                 return json($data);
             }
         }else{
-            $data=validate('News')->goCheck('add');
+            $data=validate('news')->goCheck('add');
             if(!is_array($data)){
                 $d=request()->param();
                 $d['create_time']=time();
                 $d['update_time']=$d['create_time'];
-                $menu=model('News')->create($d);
+                $menu=model('news')->create($d);
                 if($menu){
                     return json(['status'=>1,'message'=>'添加成功']);
                 }else{
@@ -79,9 +79,9 @@ class News extends Base
         }
     }
     public function status(){
-        $data=validate('News')->goCheck('status');
+        $data=validate('news')->goCheck('status');
         if(!is_array($data)){
-            $news=model('News')->isUpdate(true)->save(request()->param());
+            $news=model('news')->isUpdate(true)->save(request()->param());
             if($news){
                 return json(['status'=>1,'message'=>'操作成功']);
             }else{

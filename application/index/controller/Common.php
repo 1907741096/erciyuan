@@ -28,7 +28,7 @@ class Common extends Controller
         $this->assign('menu_id','');
     }
     public function getMenus(){
-        $menus=model('Menu')->all(['status'=>self::$status]);
+        $menus=model('menu')->all(['status'=>self::$status]);
         $this->assign('menus',$menus);
     }
     public function getCommendNews(){
@@ -43,7 +43,7 @@ class Common extends Controller
     }
     public function puterror($message){
         $this->assign('message',$message);
-        return $this->fetch('Common/error');
+        return $this->fetch('common/error');
     }
     public function getStyle(){
         $style_id=config('setting.default_style');
