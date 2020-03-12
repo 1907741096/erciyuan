@@ -2,7 +2,7 @@
 
 /**
  * Created by PhpStorm.
- * User: 王振远
+ * user: 王振远
  * Date: 2017/7/14
  * Time: 15:51
  */
@@ -27,8 +27,8 @@ class Admin extends Base
     }
     public function add(){
         $admin='';
-        if(!is_array(validate('Admin')->goCheck('id'))){
-            $admin=model('Admin')->find(input('id'));
+        if(!is_array(validate('admin')->goCheck('id'))){
+            $admin=model('admin')->find(input('id'));
         }
         $this->assign('admin',$admin);
         $this->assign('nav','addadmin');
@@ -46,9 +46,9 @@ class Admin extends Base
         $d['create_time']=time();
         $d['password']=md5(config('setting.md5_pre').$d['password']);
         if(input('id')){
-            $data=validate('Admin')->goCheck('edit');
+            $data=validate('admin')->goCheck('edit');
             if(!is_array($data)){
-                $admin=model('Admin')->isUpdate(true)->save($d);
+                $admin=model('admin')->isUpdate(true)->save($d);
                 if($admin){
                     return json(['status'=>1,'message'=>'修改成功']);
                 }else{
@@ -58,9 +58,9 @@ class Admin extends Base
                 return json($data);
             }
         }else{
-            $data=validate('Admin')->goCheck('add');
+            $data=validate('admin')->goCheck('add');
             if(!is_array($data)){
-                $admin=model('Admin')->create($d);
+                $admin=model('admin')->create($d);
                 if($admin){
                     return json(['status'=>1,'message'=>'添加成功']);
                 }else{
@@ -76,9 +76,9 @@ class Admin extends Base
         if(session('admin')['id']!=1){
             return json(['status'=>0,'message'=>'当前管理员没有权限']);
         }
-        $data=validate('Admin')->goCheck('status');
+        $data=validate('admin')->goCheck('status');
         if(!is_array($data)){
-            $admin=model('Admin')->isUpdate(true)->save(request()->param());
+            $admin=model('admin')->isUpdate(true)->save(request()->param());
             if($admin){
                 return json(['status'=>1,'message'=>'操作成功']);
             }else{

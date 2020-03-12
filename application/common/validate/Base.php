@@ -1,7 +1,7 @@
 <?php
     /**
      * Created by PhpStorm.
-     * User: 王振远
+     * user: 王振远
      * Date: 2017/5/13
      * Time: 18:47
      */
@@ -42,7 +42,7 @@ class Base extends Validate{
     }
     public function ifLoginUser($value,$rule='',$data='',$field=''){
         $d['username']=$value;
-        $user=model('User')->where($d)->select();
+        $user=model('user')->where($d)->select();
         if(!$user->isEmpty()){
             return false;
         }else{
@@ -51,7 +51,7 @@ class Base extends Validate{
     }
     public function ifLoginAdmin($value,$rule='',$data='',$field=''){
         $d['username']=$value;
-        $admin=model('Admin')->all($d);
+        $admin=model('admin')->all($d);
         if(!$admin->isEmpty()){
             return false;
         }else{

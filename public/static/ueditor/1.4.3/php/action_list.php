@@ -1,7 +1,7 @@
 <?php
 /**
  * 获取已上传的文件列表
- * User: Jinqn
+ * user: Jinqn
  * Date: 14-04-09
  * Time: 上午10:17
  */

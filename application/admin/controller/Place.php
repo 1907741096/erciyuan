@@ -2,7 +2,7 @@
 
 /**
  * Created by PhpStorm.
- * User: 王振远
+ * user: 王振远
  * Date: 2017/7/14
  * Time: 15:51
  */
@@ -13,15 +13,15 @@ class Place extends Base
 {
     public function index(){
         $data['status']=array('neq',-1);
-        $places=model('Place')->getDatas(config('setting.page_count'),$data);
+        $places=model('place')->getDatas(config('setting.page_count'),$data);
         $this->assign('places',$places);
         $this->assign('nav','place');
         return $this->fetch();
     }
     public function add(){
         $place='';
-        if(!is_array(validate('Place')->goCheck('id'))){
-            $place=model('Place')->find(input('id'));
+        if(!is_array(validate('place')->goCheck('id'))){
+            $place=model('place')->find(input('id'));
         }
         $this->assign('place',$place);
         $this->assign('nav','addplace');
@@ -29,9 +29,9 @@ class Place extends Base
     }
     public function save(){
         if(input('id')){
-            $data=validate('Place')->goCheck('edit');
+            $data=validate('place')->goCheck('edit');
             if(!is_array($data)){
-                $place=model('Place')->isUpdate(true)->save(request()->param());
+                $place=model('place')->isUpdate(true)->save(request()->param());
                 if($place){
                     return json(['status'=>1,'message'=>'修改成功']);
                 }else{
@@ -41,9 +41,9 @@ class Place extends Base
                 return json($data);
             }
         }else{
-            $data=validate('Place')->goCheck('add');
+            $data=validate('place')->goCheck('add');
             if(!is_array($data)){
-                $place=model('Place')->create(request()->param());
+                $place=model('place')->create(request()->param());
                 if($place){
                     return json(['status'=>1,'message'=>'添加成功']);
                 }else{
@@ -56,9 +56,9 @@ class Place extends Base
         }
     }
     public function status(){
-        $data=validate('Place')->goCheck('status');
+        $data=validate('place')->goCheck('status');
         if(!is_array($data)){
-            $place=model('Place')->isUpdate(true)->save(request()->param());
+            $place=model('place')->isUpdate(true)->save(request()->param());
             if($place){
                 return json(['status'=>1,'message'=>'操作成功']);
             }else{

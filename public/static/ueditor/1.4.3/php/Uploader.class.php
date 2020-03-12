@@ -2,7 +2,7 @@
 
 /**
  * Created by JetBrains PhpStorm.
- * User: taoqili
+ * user: taoqili
  * Date: 12-7-18
  * Time: 上午11: 32
  * UEditor编辑器通用上传类
@@ -186,7 +186,7 @@ class Uploader
         }
         //格式验证(扩展名验证和Content-Type验证)
         $fileType = strtolower(strrchr($imgUrl, '.'));
-        if (!in_array($fileType, $this->config['allowFiles']) || stristr($heads['Content-Type'], "image")) {
+        if (!in_array($fileType, $this->config['allowFiles']) || stristr($heads['content-Type'], "image")) {
             $this->stateInfo = $this->getStateInfo("ERROR_HTTP_CONTENTTYPE");
             return;
         }

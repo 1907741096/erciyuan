@@ -2,7 +2,7 @@
 
 /**
  * Created by PhpStorm.
- * User: 王振远
+ * user: 王振远
  * Date: 2017/7/14
  * Time: 15:51
  */
@@ -13,15 +13,15 @@ class Lang extends Base
 {
     public function index(){
         $data['status']=array('neq',-1);
-        $langs=model('Lang')->getDatas(config('setting.page_count'),$data);
+        $langs=model('lang')->getDatas(config('setting.page_count'),$data);
         $this->assign('langs',$langs);
         $this->assign('nav','lang');
         return $this->fetch();
     }
     public function add(){
         $lang='';
-        if(!is_array(validate('Lang')->goCheck('id'))){
-            $lang=model('Lang')->find(input('id'));
+        if(!is_array(validate('lang')->goCheck('id'))){
+            $lang=model('lang')->find(input('id'));
         }
         $this->assign('lang',$lang);
         $this->assign('nav','addlang');
@@ -29,9 +29,9 @@ class Lang extends Base
     }
     public function save(){
         if(input('id')){
-            $data=validate('Lang')->goCheck('edit');
+            $data=validate('lang')->goCheck('edit');
             if(!is_array($data)){
-                $lang=model('Lang')->isUpdate(true)->save(request()->param());
+                $lang=model('lang')->isUpdate(true)->save(request()->param());
                 if($lang){
                     return json(['status'=>1,'message'=>'修改成功']);
                 }else{
@@ -41,9 +41,9 @@ class Lang extends Base
                 return json($data);
             }
         }else{
-            $data=validate('Lang')->goCheck('add');
+            $data=validate('lang')->goCheck('add');
             if(!is_array($data)){
-                $lang=model('Lang')->create(request()->param());
+                $lang=model('lang')->create(request()->param());
                 if($lang){
                     return json(['status'=>1,'message'=>'添加成功']);
                 }else{
@@ -56,9 +56,9 @@ class Lang extends Base
         }
     }
     public function status(){
-        $data=validate('Lang')->goCheck('status');
+        $data=validate('lang')->goCheck('status');
         if(!is_array($data)){
-            $lang=model('Lang')->isUpdate(true)->save(request()->param());
+            $lang=model('lang')->isUpdate(true)->save(request()->param());
             if($lang){
                 return json(['status'=>1,'message'=>'操作成功']);
             }else{

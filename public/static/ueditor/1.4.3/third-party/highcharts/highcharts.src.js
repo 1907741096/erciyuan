@@ -329,7 +329,7 @@ function pick() {
 /**
  * Set CSS on a given element
  * @param {Object} el
- * @param {Object} styles Style object with camel case property names
+ * @param {Object} styles style object with camel case property names
  */
 function css(el, styles) {
 	if (isIE) {
@@ -6751,7 +6751,7 @@ Axis.prototype = {
 		axis.max = null;
 		axis.min = null;
 	
-		// User set min and max
+		// user set min and max
 		//axis.userMin = UNDEFINED,
 		//axis.userMax = UNDEFINED,
 
@@ -7135,7 +7135,7 @@ Axis.prototype = {
 		pos = roundedMin;
 		while (pos <= roundedMax) {
 
-			// Place the tick on the rounded value
+			// place the tick on the rounded value
 			tickPositions.push(pos);
 
 			// Always add the raw tickInterval, not the corrected one.
@@ -8164,7 +8164,7 @@ Axis.prototype = {
 	},
 	
 	/**
-	 * Position the title
+	 * position the title
 	 */
 	getTitlePosition: function () {
 		// compute anchor points for each of the title align options
@@ -8759,7 +8759,7 @@ Tooltip.prototype = {
 	},
 	
 	/**
-	 * Place the tooltip in a chart without spilling over
+	 * place the tooltip in a chart without spilling over
 	 * and not covering the point it self.
 	 */
 	getPosition: function (boxWidth, boxHeight, point) {
@@ -9936,7 +9936,7 @@ Legend.prototype = {
 	},
 
 	/**
-	 * Position the legend item
+	 * position the legend item
 	 * @param {Object} item A Series or Point instance
 	 */
 	positionItem: function (item) {
@@ -9999,7 +9999,7 @@ Legend.prototype = {
 	},
 
 	/**
-	 * Position the checkboxes after the width is determined
+	 * position the checkboxes after the width is determined
 	 */
 	positionCheckboxes: function (scrollOffset) {
 		var alignAttr = this.group.alignAttr,
@@ -13699,7 +13699,7 @@ Series.prototype = {
 				point.total = point.stackTotal = pointStack.total;
 				point.stackY = yValue;
 
-				// Place the stack label
+				// place the stack label
 				pointStack.setOffset(series.pointXOffset || 0, series.barW || 0);
 				
 			}
@@ -14857,7 +14857,7 @@ Series.prototype = {
 				})
 				.add(parent);
 		}
-		// Place it on first and subsequent (redraw) calls
+		// place it on first and subsequent (redraw) calls
 		group[isNew ? 'attr' : 'animate'](this.getPlotBox());
 		return group;		
 	},
@@ -16766,7 +16766,7 @@ var PieSeries = {
 		// that labels are not spilling over. 
 		if (arrayMax(overflow) === 0 || this.verifyDataLabelOverflow(overflow)) {
 			
-			// Place the labels in the final position
+			// place the labels in the final position
 			this.placeDataLabels();
 			
 			// Draw the connectors

@@ -7248,7 +7248,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                 });
 
             }
-            return '<html><head>' + (me.options.charset ? '<meta http-equiv="Content-Type" content="text/html; charset=' + me.options.charset + '"/>' : '')
+            return '<html><head>' + (me.options.charset ? '<meta http-equiv="content-Type" content="text/html; charset=' + me.options.charset + '"/>' : '')
                 + (headHtmlForIE9 || me.document.getElementsByTagName('head')[0].innerHTML) + headHtml.join('\n') + '</head>'
                 + '<body ' + (ie && browser.version < 9 ? 'class="view"' : '') + '>' + me.getContent(null, null, true) + '</body></html>';
         },
@@ -8222,7 +8222,7 @@ UE.ajax = function() {
             }
         };
         if (method == "POST") {
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.setRequestHeader('content-Type', 'application/x-www-form-urlencoded');
             xhr.send(submitStr);
         } else {
             xhr.send(null);
@@ -9667,7 +9667,7 @@ var filterNode = UE.filterNode = function () {
 // core/plugin.js
 /**
  * Created with JetBrains PhpStorm.
- * User: campaign
+ * user: campaign
  * Date: 10/8/13
  * Time: 6:15 PM
  * To change this template use File | Settings | File Templates.
@@ -13131,7 +13131,7 @@ UE.plugins['insertcode'] = function() {
             'as3':'ActionScript3',
             'bash':'Bash/Shell',
             'cpp':'C/C++',
-            'css':'Style',
+            'css':'style',
             'cf':'CodeFunction',
             'c#':'C#',
             'delphi':'Delphi',
@@ -13792,7 +13792,7 @@ UE.plugin.register('anchor', function (){
 ///commandsTitle  字数统计
 /*
  * Created by JetBrains WebStorm.
- * User: taoqili
+ * user: taoqili
  * Date: 11-9-7
  * Time: 下午8:18
  * To change this template use File | Settings | File Templates.
@@ -17733,7 +17733,7 @@ UE.plugins['video'] = function (){
 // plugins/table.core.js
 /**
  * Created with JetBrains WebStorm.
- * User: taoqili
+ * user: taoqili
  * Date: 13-1-18
  * Time: 上午11:09
  * To change this template use File | Settings | File Templates.
@@ -18875,7 +18875,7 @@ UE.plugins['video'] = function (){
 // plugins/table.cmds.js
 /**
  * Created with JetBrains PhpStorm.
- * User: taoqili
+ * user: taoqili
  * Date: 13-2-20
  * Time: 下午6:25
  * To change this template use File | Settings | File Templates.
@@ -19813,7 +19813,7 @@ UE.plugins['video'] = function (){
 // plugins/table.action.js
 /**
  * Created with JetBrains PhpStorm.
- * User: taoqili
+ * user: taoqili
  * Date: 12-10-12
  * Time: 上午10:05
  * To change this template use File | Settings | File Templates.
@@ -21691,7 +21691,7 @@ UE.plugins['table'] = function () {
 // plugins/table.sort.js
 /**
  * Created with JetBrains PhpStorm.
- * User: Jinqn
+ * user: Jinqn
  * Date: 13-10-12
  * Time: 上午10:20
  * To change this template use File | Settings | File Templates.

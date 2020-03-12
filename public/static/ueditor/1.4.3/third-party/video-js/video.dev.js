@@ -1017,8 +1017,8 @@ vjs.getAttributeValues = function(tag){
  * Get the computed style value for an element
  * From http://robertnyman.com/2006/04/24/get-the-rendered-style-of-an-element/
  * @param  {Element} el        Element to get style value for
- * @param  {String} strCssRule Style name
- * @return {String}            Style value
+ * @param  {String} strCssRule style name
+ * @return {String}            style value
  * @private
  */
 vjs.getComputedDimension = function(el, strCssRule){
@@ -6403,7 +6403,7 @@ vjs.TextTrack.prototype.parseCues = function(srcContent) {
       // First line - Number
       cue = {
         id: id, // Cue Number
-        index: this.cues_.length // Position in Array
+        index: this.cues_.length // position in Array
       };
 
       // Timing line

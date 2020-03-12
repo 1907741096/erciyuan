@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: 王振远
+ * user: 王振远
  * Date: 2017/7/17
  * Time: 10:06
  */
@@ -15,15 +15,15 @@ class Position extends Base
 {
     public function index(){
         $data['status']=array('neq',-1);
-        $positions=model('Position')->getDatas(config('setting.page_count'),$data);
+        $positions=model('position')->getDatas(config('setting.page_count'),$data);
         $this->assign('positions',$positions);
         $this->assign('nav','position');
         return $this->fetch();
     }
     public function add(){
         $position='';
-        if(!is_array(validate('Position')->goCheck('id'))){
-            $position=model('Position')->find(input('id'));
+        if(!is_array(validate('position')->goCheck('id'))){
+            $position=model('position')->find(input('id'));
         }
         $this->assign('position',$position);
         $this->assign('nav','addposition');
@@ -31,9 +31,9 @@ class Position extends Base
     }
     public function save(){
         if(input('id')){
-            $data=validate('Position')->goCheck('edit');
+            $data=validate('position')->goCheck('edit');
             if(!is_array($data)){
-                $position=model('Position')->isUpdate(true)->save(request()->param());
+                $position=model('position')->isUpdate(true)->save(request()->param());
                 if($position){
                     return json(['status'=>1,'message'=>'修改成功']);
                 }else{
@@ -43,9 +43,9 @@ class Position extends Base
                 return json($data);
             }
         }else{
-            $data=validate('Position')->goCheck('add');
+            $data=validate('position')->goCheck('add');
             if(!is_array($data)){
-                $position=model('Position')->create(request()->param());
+                $position=model('position')->create(request()->param());
                 if($position){
                     return json(['status'=>1,'message'=>'添加成功']);
                 }else{
@@ -58,9 +58,9 @@ class Position extends Base
         }
     }
     public function status(){
-        $data=validate('Position')->goCheck('status');
+        $data=validate('position')->goCheck('status');
         if(!is_array($data)){
-            $position=model('Position')->isUpdate(true)->save(request()->param());
+            $position=model('position')->isUpdate(true)->save(request()->param());
             if($position){
                 return json(['status'=>1,'message'=>'操作成功']);
             }else{

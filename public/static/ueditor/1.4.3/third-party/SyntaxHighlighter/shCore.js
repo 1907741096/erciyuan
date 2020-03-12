@@ -1428,7 +1428,7 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
      * Wraps each line of the string into <code/> tag with given style applied to it.
      *
      * @param {String} str   Input string.
-     * @param {String} css   Style name to apply to the string.
+     * @param {String} css   style name to apply to the string.
      * @return {String}      Returns input string with each line surrounded by <span/> tag.
      */
     function wrapLinesWithCode(str, css)

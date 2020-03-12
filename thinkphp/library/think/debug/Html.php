@@ -45,7 +45,7 @@ class Html
     public function output(Response $response, array $log = [])
     {
         $request     = Request::instance();
-        $contentType = $response->getHeader('Content-Type');
+        $contentType = $response->getHeader('content-Type');
         $accept      = $request->header('accept');
         if (strpos($accept, 'application/json') === 0 || $request->isAjax()) {
             return false;

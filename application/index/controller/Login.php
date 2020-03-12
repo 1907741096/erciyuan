@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: 王振远
+ * user: 王振远
  * Date: 2017/7/25
  * Time: 18:24
  */
@@ -21,7 +21,7 @@ class Login extends Controller
             if(session('style_id')&&session('style_id')!=null){
                 $style_id=session('style_id');
             }
-            $style=model('Style')->find($style_id);
+            $style=model('style')->find($style_id);
             $this->assign('styleAddress',$style['address']);
             return $this->fetch();
         }
@@ -41,7 +41,7 @@ class Login extends Controller
         if(!$data['password']||trim($data['password'])==''){
             return ['status'=>0,'message'=>'请输入密码'];
         }
-        $user=model('User')->get(['username'=>$data['username']]);
+        $user=model('user')->get(['username'=>$data['username']]);
         if(!$user){
             return ['status'=>0,'message'=>'账号不存在'];
         }
@@ -54,7 +54,7 @@ class Login extends Controller
         session('user', $user);
         $a['lastlogin_time']=time();
         $u['id']=$user['id'];
-        model("User")->isUpdate(true)->save($u);
+        model("user")->isUpdate(true)->save($u);
         return true;
     }
     public function loginout(){

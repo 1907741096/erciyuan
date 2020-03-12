@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: 王振远
+ * user: 王振远
  * Date: 2017/7/25
  * Time: 9:56
  */
@@ -21,10 +21,10 @@ class Sound
             $data['style_id']=session('style_id');
         }
         if(session('user')&&session('user')!=null){
-            $user=model('User')->find(session('user')['id']);
+            $user=model('user')->find(session('user')['id']);
             $data['style_id']=$user['style_id'];
         }
-        $sounds=model('Sound')->all($data);
+        $sounds=model('sound')->all($data);
         if($sounds->isEmpty()){
             return '';
         }
@@ -33,7 +33,7 @@ class Sound
         return $sounds[$num]['address'];
     }
     public function updateStyle(){
-        $msg=validate('Style')->gocheck('id');
+        $msg=validate('style')->gocheck('id');
         if(is_array($msg)){
             return json($msg);
         }else{
@@ -41,14 +41,14 @@ class Sound
             if(session('user')&&session('user')!=null){
                 $data['style_id']=$id;
                 $data['id']=session('user')['id'];
-                $res=model('User')->isUpdate(true)->save($data);
-                $style=model('Style')->find($id);
+                $res=model('user')->isUpdate(true)->save($data);
+                $style=model('style')->find($id);
                 if($res){
                     return json(['status'=>1,'address'=>$style['address'],'thumb'=>$style['thumb']]);
                 }
             }else{
                 session('style_id',$id);
-                $style=model('Style')->find($id);
+                $style=model('style')->find($id);
                 return json(['status'=>1,'address'=>$style['address'],'thumb'=>$style['thumb']]);
             }
             return json(['status'=>0,'message'=>'已切换至该主题']);

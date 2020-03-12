@@ -3042,7 +3042,7 @@ if (CanvasRenderingContext2D) {
 					'border-color': args.borderColor
 				});
 
-				// Position the tooltip line
+				// position the tooltip line
 				css(tooltipLine, {
 					visibility: VISIBLE,
 					left: offsetLeft + args.x + PX,

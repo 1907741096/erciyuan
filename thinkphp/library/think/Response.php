@@ -272,7 +272,7 @@ class Response
      */
     public function contentType($contentType, $charset = 'utf-8')
     {
-        $this->header['Content-Type'] = $contentType . '; charset=' . $charset;
+        $this->header['content-Type'] = $contentType . '; charset=' . $charset;
         return $this;
     }
 

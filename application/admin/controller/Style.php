@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: 王振远
+ * user: 王振远
  * Date: 2017/7/19
  * Time: 13:45
  */
@@ -15,15 +15,15 @@ class Style extends Base
 {
     public function index(){
         $data['status']=array('neq',-1);
-        $styles=model('Style')->getDatas(config('setting.page_count'),$data);
+        $styles=model('style')->getDatas(config('setting.page_count'),$data);
         $this->assign('styles',$styles);
         $this->assign('nav','style');
         return $this->fetch();
     }
     public function add(){
         $style='';
-        if(!is_array(validate('Style')->goCheck('id'))){
-            $style=model('Style')->find(input('id'));
+        if(!is_array(validate('style')->goCheck('id'))){
+            $style=model('style')->find(input('id'));
         }
         $this->assign('style',$style);
         $this->assign('nav','addstyle');
@@ -31,9 +31,9 @@ class Style extends Base
     }
     public function save(){
         if(input('id')){
-            $data=validate('Style')->goCheck('edit');
+            $data=validate('style')->goCheck('edit');
             if(!is_array($data)){
-                $style=model('Style')->isUpdate(true)->save(request()->param());
+                $style=model('style')->isUpdate(true)->save(request()->param());
                 if($style){
                     return json(['status'=>1,'message'=>'修改成功']);
                 }else{
@@ -43,9 +43,9 @@ class Style extends Base
                 return json($data);
             }
         }else{
-            $data=validate('Style')->goCheck('add');
+            $data=validate('style')->goCheck('add');
             if(!is_array($data)){
-                $style=model('Style')->create(request()->param());
+                $style=model('style')->create(request()->param());
                 if($style){
                     return json(['status'=>1,'message'=>'添加成功']);
                 }else{
@@ -58,9 +58,9 @@ class Style extends Base
         }
     }
     public function status(){
-        $data=validate('Style')->goCheck('status');
+        $data=validate('style')->goCheck('status');
         if(!is_array($data)){
-            $style=model('Style')->isUpdate(true)->save(request()->param());
+            $style=model('style')->isUpdate(true)->save(request()->param());
             if($style){
                 return json(['status'=>1,'message'=>'操作成功']);
             }else{

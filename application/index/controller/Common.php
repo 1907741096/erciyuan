@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: 王振远
+ * user: 王振远
  * Date: 2017/7/24
  * Time: 16:50
  */
@@ -34,11 +34,11 @@ class Common extends Controller
     public function getCommendNews(){
         $data['status']=self::$status;
         $data['position_id']=2;
-        $CommendNews=model('Content')->where($data)->order('listorder desc')->limit(5)->select();
+        $CommendNews=model('content')->where($data)->order('listorder desc')->limit(5)->select();
         $this->assign('CommendNews',$CommendNews);
     }
     public function getAllStyle(){
-        $styles=model('Style')->all(['status'=>self::$status]);
+        $styles=model('style')->all(['status'=>self::$status]);
         $this->assign('styles',$styles);
     }
     public function puterror($message){
@@ -52,10 +52,10 @@ class Common extends Controller
         }
         if(session('user')&&session('user')!=null){
             $id=session('user')['id'];
-            $user=model('User')->find($id);
+            $user=model('user')->find($id);
             $style_id=$user['style_id'];
         }
-        $style=model('Style')->find($style_id);
+        $style=model('style')->find($style_id);
         $this->assign('styleThumb',$style['thumb']);
         $this->assign('styleAddress',$style['address']);
     }

@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: 王振远
+ * user: 王振远
  * Date: 2017/7/19
  * Time: 8:42
  */
@@ -30,9 +30,9 @@ class Content extends Base
         return $this->fetch();
     }
     public function status(){
-        $data=validate('Content')->goCheck('status');
+        $data=validate('content')->goCheck('status');
         if(!is_array($data)){
-            $news=model('Content')->isUpdate(true)->save(request()->param());
+            $news=model('content')->isUpdate(true)->save(request()->param());
             if($news){
                 return json(['status'=>1,'message'=>'操作成功']);
             }else{
@@ -43,7 +43,7 @@ class Content extends Base
         }
     }
     public function add(){
-        $msg=validate('Content')->goCheck('add');
+        $msg=validate('content')->goCheck('add');
         if(!is_array($msg)){
             $jumpUrl = $_SERVER['HTTP_REFERER'];
             $push=input();
@@ -55,7 +55,7 @@ class Content extends Base
                         'position_id' => $position_id,
                         'news_id' => $newsid[$i]
                     );
-                    $content = model('Content')->create($data);
+                    $content = model('content')->create($data);
                 }
             }catch(Exception $e) {
                 return json(['status'=>0, 'message'=>$e->getMessage()]);
@@ -67,7 +67,7 @@ class Content extends Base
         }
     }
     public function listorder(){
-        $msg=validate('Content')->goCheck('listorder');
+        $msg=validate('content')->goCheck('listorder');
         if(!is_array($msg)){
             $jumpUrl = $_SERVER['HTTP_REFERER'];
             $listorders = input()['listorder'];
@@ -77,7 +77,7 @@ class Content extends Base
                         'id' => $i,
                         'listorder' => $n
                     );
-                    $content = model('Content')->isUpdate(true)->save($data);
+                    $content = model('content')->isUpdate(true)->save($data);
                 }
             }catch(Exception $e) {
                 return json(['status'=>0, 'message'=>$e->getMessage()]);

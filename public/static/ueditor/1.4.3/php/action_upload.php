@@ -1,7 +1,7 @@
 <?php
 /**
  * 上传附件和上传视频
- * User: Jinqn
+ * user: Jinqn
  * Date: 14-04-09
  * Time: 上午10:17
  */

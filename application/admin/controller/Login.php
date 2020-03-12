@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: 王振远
+ * user: 王振远
  * Date: 2017/7/20
  * Time: 20:23
  */
@@ -36,7 +36,7 @@ class Login extends Controller
         if(!$data['password']||trim($data['password'])==''){
             return ['status'=>0,'message'=>'请输入密码'];
         }
-        $admin=model('Admin')->get(['username'=>$data['username']]);
+        $admin=model('admin')->get(['username'=>$data['username']]);
         if(!$admin){
             return ['status'=>0,'message'=>'账号不存在'];
         }
@@ -49,7 +49,7 @@ class Login extends Controller
         session('admin', $admin);
         $a['lastlogin_time']=time();
         $a['id']=$admin['id'];
-        model("Admin")->isUpdate(true)->save($a);
+        model("admin")->isUpdate(true)->save($a);
         return true;
     }
 }

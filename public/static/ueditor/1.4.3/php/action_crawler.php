@@ -1,7 +1,7 @@
 <?php
 /**
  * 抓取远程图片
- * User: Jinqn
+ * user: Jinqn
  * Date: 14-04-14
  * Time: 下午19:18
  */

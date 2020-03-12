@@ -2,7 +2,7 @@
 
 /**
  * Created by PhpStorm.
- * User: 王振远
+ * user: 王振远
  * Date: 2017/7/14
  * Time: 15:51
  */
@@ -26,8 +26,8 @@ class User extends Base
     }
     public function add(){
         $user='';
-        if(!is_array(validate('User')->goCheck('id'))){
-            $user=model('User')->find(input('id'));
+        if(!is_array(validate('user')->goCheck('id'))){
+            $user=model('user')->find(input('id'));
         }
         $this->assign('user',$user);
         $this->assign('nav','adduser');
@@ -45,9 +45,9 @@ class User extends Base
         $d['create_time']=time();
         $d['password']=md5(config('setting.md5_pre').$d['password']);
         if(input('id')){
-            $data=validate('User')->goCheck('edit');
+            $data=validate('user')->goCheck('edit');
             if(!is_array($data)){
-                $user=model('User')->isUpdate(true)->save($d);
+                $user=model('user')->isUpdate(true)->save($d);
                 if($user){
                     return json(['status'=>1,'message'=>'修改成功']);
                 }else{
@@ -57,9 +57,9 @@ class User extends Base
                 return json($data);
             }
         }else{
-            $data=validate('User')->goCheck('add');
+            $data=validate('user')->goCheck('add');
             if(!is_array($data)){
-                $user=model('User')->create($d);
+                $user=model('user')->create($d);
                 if($user){
                     return json(['status'=>1,'message'=>'添加成功']);
                 }else{
@@ -72,9 +72,9 @@ class User extends Base
         }
     }
     public function status(){
-        $data=validate('User')->goCheck('status');
+        $data=validate('user')->goCheck('status');
         if(!is_array($data)){
-            $user=model('User')->isUpdate(true)->save(request()->param());
+            $user=model('user')->isUpdate(true)->save(request()->param());
             if($user){
                 return json(['status'=>1,'message'=>'操作成功']);
             }else{

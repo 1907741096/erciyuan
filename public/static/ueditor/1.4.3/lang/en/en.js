@@ -1,6 +1,6 @@
 /**
  * Created with JetBrains PhpStorm.
- * User: taoqili
+ * user: taoqili
  * Date: 12-6-12
  * Time: 下午6:57
  * To change this template use File | Settings | File Templates.
@@ -266,7 +266,7 @@ UE.I18N['en'] = {
             'lang_input_border':"Border:",
             'lang_input_vhspace':"Margins:",
             'lang_input_title':"Title:",
-            'lang_input_align':'Image Float Style:',
+            'lang_input_align':'Image Float style:',
             'lang_imgLoading':"Loading...",
             'lang_start_upload':"Start Upload",
             'lock':{'title':"Lock rate"},
@@ -435,7 +435,7 @@ UE.I18N['en'] = {
     'template':{
         'static':{
             'lang_template_bkcolor':'Background Color',
-            'lang_template_clear' : 'Keep Content',
+            'lang_template_clear' : 'Keep content',
             'lang_template_select':'Select Template'
         },
         'blank':"Blank",

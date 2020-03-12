@@ -991,7 +991,7 @@ class Template
                     $parseStr = strtoupper($param);
                     break;
                 case 'LANG':
-                    $parseStr = '\\think\\Lang::get(\'' . $param . '\')';
+                    $parseStr = '\\think\\lang::get(\'' . $param . '\')';
                     break;
                 case 'CONFIG':
                     $parseStr = '\\think\\Config::get(\'' . $param . '\')';

@@ -301,7 +301,7 @@ EOF;
 <?php echo \\think\\Request::instance()->env('OS'); ?><br/>
 <?php echo \\think\\Request::instance()->request('action'); ?><br/>
 <?php echo SITE_NAME; ?><br/>
-<?php echo \\think\\Lang::get('action'); ?><br/>
+<?php echo \\think\\lang::get('action'); ?><br/>
 <?php echo \\think\\Config::get('action.name'); ?><br/>
 <?php echo date('Y-m-d g:i a',time()); ?><br/>
 <?php echo THINK_VERSION; ?><br/>
