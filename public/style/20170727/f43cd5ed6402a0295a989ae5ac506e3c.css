@@ -1,0 +1,47 @@
+.color{
+    background: #d260d4;
+    border-color:#d260d4;
+    -webkit-transition:background-color 0.5s;
+}
+.active a{
+    background: #c44fb9;
+}
+.active a:hover{
+    background: #c44fb9;
+}
+.sidebar-title{
+    background: #d260d4;
+    -webkit-transition:background-color 0.5s;
+}
+.news-title{
+    color: #d260d4;
+    -webkit-transition:background-color 0.5s;
+}
+.news-content{
+    color: #d260d4;
+    -webkit-transition:background-color 0.5s;
+}
+.pagination>.active>span{
+    background-color: #d260d4;
+    border-color: #d260d4;
+}
+.pagination>.active>span:hover{
+    background-color: #d260d4;
+    border-color: #d260d4;
+}
+.h2{
+    background: rgba(210, 96, 212, 0.4);
+}
+.login-logo{
+    color: #d260d4;
+}
+.button{
+    background: #d260d4;
+}
+.login-body{
+    background: url('/erciyuan/public/static/image/emt.jpg') no-repeat;
+    background-size:100% 100%;
+}
+#login{
+    opacity: 0.9;
+}

@@ -1,0 +1,100 @@
+{include file="Common/head"}
+<body>
+
+{include file="Common/top"}
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        {include file="Common/nav"}
+        <div class="span9">
+            <div class="row-fluid">
+                <div class="page-header">
+                    <h1>音频管理
+                        <small>编辑音频</small>
+                    </h1>
+                </div>
+
+                <form class="form-horizontal" id="form">
+                    <fieldset>
+                        <input type="hidden" class="input-xlarge" id="id" name="id" value={if condition="$sound neq ''"
+                               }{$sound.id}{/if}>
+
+                        <div class="control-group">
+                            <label class="control-label">主题选择</label>
+                            <div class="controls">
+                                <select class="btn" name="style_id">
+                                    <option value="" {if condition="$sound eq ''" }selected="selected" {/if}>请选择主题</option>
+                                    {foreach name="styles" item="style"}
+                                    <option value="{$style.id}" {if condition="$style_id eq $style.id" }selected="selected" {/if}>{$style.name}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">场景选择</label>
+                            <div class="controls">
+                                <select class="btn" name="place_id">
+                                    <option value="" {if condition="$sound eq ''" }selected="selected" {/if}>请选择场景</option>
+                                    {foreach name="places" item="place"}
+                                    <option value="{$place.id}" {if condition="$place_id eq $place.id" }selected="selected" {/if}>{$place.name}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">语言选择</label>
+                            <div class="controls">
+                                <select class="btn" name="lang_id">
+                                    <option value="" {if condition="$sound eq ''" }selected="selected" {/if}>请选择语言</option>
+                                    {foreach name="langs" item="lang"}
+                                    <option value="{$lang.id}" {if condition="$lang_id eq $lang.id" }selected="selected" {/if}>{$lang.name}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for="sound_name">音频内容</label>
+                            <div class="controls">
+                                <input type="text" class="input-xlarge" id="sound_name" name="name" value={if
+                                       condition="$sound neq ''" }{$sound.name}{/if}>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">主题文件</label>
+                            <div class="controls">
+                                <input id="file_upload" type="file" multiple="true">
+                                <text id="sound_address">{if condition="$sound neq ''"}{$sound.address}{/if}</text>
+                                <input id="file_upload_image" name="address" type="hidden" multiple="true" value={if
+                                       condition="$sound neq ''" }"{$sound.address}"{/if}>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <input type="button" class="btn btn-success" id="submit" value="确定"/>
+                            <input type="reset" class="btn" value="重置"/>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr>
+    {include file="Common/footer"}
+</div>
+<script src="__STATIC__/uploadify/jquery.uploadify.js"></script>
+<script src="__STATIC__/js/sound.js"></script>
+<script type="text/javascript">
+    var SCOPE = {
+        'save_url': '__ADMIN__/sound/save',
+        'jump_url': '__ADMIN__/sound',
+        'ajax_upload_image_url': '__ADMIN__/upload/sound',
+        'ajax_upload_swf': '__STATIC__/uploadify/uploadify.swf'
+    };
+</script>
+
+</body>
+</html>

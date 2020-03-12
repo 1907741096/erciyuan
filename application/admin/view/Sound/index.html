@@ -1,0 +1,91 @@
+{include file="Common/head"}
+<body>
+
+{include file="Common/top"}
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        {include file="Common/nav"}
+        <div class="span9">
+            <div class="row-fluid">
+                <div class="page-header">
+                    <h1>音频管理 <small>音频列表</small></h1>
+                </div>
+                <div style="text-align: center">
+                    <form action="__ADMIN__/sound/index" method="post">
+                        <select class="btn" name="style_id">
+                            <option value="" {if condition="$style_id eq ''" }selected="selected" {
+                            /if}>请选择主题</option>
+                            {foreach name="styles" item="style"}
+                            <option value="{$style.id}" {if condition="$style_id eq $style.id" }selected="selected" {/if}>{$style.name}</option>
+                            {/foreach}
+                        </select>
+                        <select class="btn" name="place_id">
+                            <option value="" {if condition="$place_id eq ''" }selected="selected" {
+                            /if}>请选择场景</option>
+                            {foreach name="places" item="place"}
+                            <option value="{$place.id}" {if condition="$place_id eq $place.id" }selected="selected" {/if}>{$place.name}</option>
+                            {/foreach}
+                        </select>
+                        <select class="btn" name="lang_id">
+                            <option value="" {if condition="$lang_id eq ''" }selected="selected" {
+                            /if}>请选择语言</option>
+                            {foreach name="langs" item="lang"}
+                            <option value="{$lang.id}" {if condition="$lang_id eq $lang.id" }selected="selected" {/if}>{$lang.name}</option>
+                            {/foreach}
+                        </select>
+                        <button type="submit" class="btn btn-success">搜索</button>
+                    </form>
+                </div>
+                <hr>
+                <table class="table table-striped table-bordered table-condensed">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>主题</th>
+                        <th>场景</th>
+                        <th>语言</th>
+                        <th>翻译</th>
+                        <th>试听</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+
+                    <tbody class="tbody">
+                    {volist name="sounds" id="sound"}
+                        <tr class="douban-list">
+                            <td>{$sound.id}</td>
+                            <th>{$sound.style.name}</th>
+                            <th>{$sound.place.name}</th>
+                            <th>{$sound.lang.name}</th>
+                            <td>{$sound.name}</td>
+                            <td><audio src="{$sound.address}" controls="controls">播放</audio></td>
+                            <td><span id="status" attr-id="{$sound.id}" attr-status="{$sound.status}" style="cursor: pointer">{$sound.status|getCommonStatus}</span>
+                            </td>
+                            <td><a style="cursor: pointer" href="{:url('sound/add',['id'=>$sound.id])}" style="margin: 0 auto;">修改</a></td>
+                            <td><span id="delete" attr-id="{$sound.id}" attr-status="{$sound.status}" style="cursor: pointer">删除</span></td>
+                        </tr>
+                    {/volist}
+                    </tbody>
+                </table>
+
+                <div class="green-black">{$sounds->render()}</div>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    {include file="Common/footer"}
+
+</div>
+<script>
+    var SCOPE={
+        'status_url':'__ADMIN__/sound/status',
+        'delete_url':'__ADMIN__/sound/status'
+    }
+</script>
+</body>
+</html>

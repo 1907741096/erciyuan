@@ -1,0 +1,57 @@
+{include file="Common/head"}
+<body>
+
+{include file="Common/top"}
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        {include file="Common/nav"}
+        <div class="span9">
+            <div class="row-fluid">
+                <div class="page-header">
+                    <h1>语言管理 <small>语言列表</small></h1>
+                </div>
+
+                <table class="table table-striped table-bordered table-condensed">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>语言名称</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+
+                    <tbody class="tbody">
+                    {volist name="langs" id="lang"}
+                        <tr class="douban-list">
+                            <td>{$lang.id}</td>
+                            <td>{$lang.name}</td>
+                            <td><span id="status" attr-id="{$lang.id}" attr-status="{$lang.status}" style="cursor: pointer">{$lang.status|getCommonStatus}</span>
+                            </td>
+                            <td><a style="cursor: pointer" href="{:url('lang/add',['id'=>$lang.id])}" style="margin: 0 auto;">修改</a></td>
+                            <td><span id="delete" attr-id="{$lang.id}" attr-status="{$lang.status}" style="cursor: pointer">删除</span></td>
+                        </tr>
+                    {/volist}
+                    </tbody>
+                </table>
+
+                <div class="green-black">{$langs->render()}</div>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    {include file="Common/footer"}
+
+</div>
+<script>
+    var SCOPE={
+        'status_url':'__ADMIN__/lang/status',
+        'delete_url':'__ADMIN__/lang/status'
+    }
+</script>
+</body>
+</html>

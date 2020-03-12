@@ -1,0 +1,19 @@
+<div class="col-md-8">
+    {volist name="news" id="new"}
+        <article class="blog-post">
+            <div class="blog-post-image">
+                <a href="__INDEX__/news/index?id={$new.id}"><img  style="width: 750px" src="{$new.thumb}" alt=""></a>
+            </div>
+            <div class="blog-post-body">
+                <h2><a href="__INDEX__/news/index?id={$new.id}" class="news-title">{$new.title}</a></h2>
+                <div class="post-meta">
+                    <span><i class="fa fa-clock-o"></i>{$new.update_time}</span>
+                    <!--/<span><i class="fa fa-comment-o"></i> <a href="#">??</a></span>-->
+                </div>
+                <p class="news-content">{$new.content|getcontent}</p>
+                <!--<div class="read-more"><a href="__INDEX__/news/index?id={$new.id}">点击查看</a></div>-->
+            </div>
+        </article>
+    {/volist}
+    <div style="display: flex;justify-content: center;margin-bottom: 40px">{$news->render()}</div>
+</div>

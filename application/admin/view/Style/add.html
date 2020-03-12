@@ -1,0 +1,86 @@
+{include file="Common/head"}
+<body>
+
+{include file="Common/top"}
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        {include file="Common/nav"}
+        <div class="span9">
+            <div class="row-fluid">
+                <div class="page-header">
+                    <h1>主题管理
+                        <small>编辑主题</small>
+                    </h1>
+                </div>
+
+                <form class="form-horizontal" id="form">
+                    <fieldset>
+                        <input type="hidden" class="input-xlarge" id="id" name="id" value={if condition="$style neq ''"
+                               }{$style.id}{/if}>
+
+
+                        <div class="control-group">
+                            <label class="control-label" for="style_name">主题名称</label>
+                            <div class="controls">
+                                <input type="text" class="input-xlarge" id="style_name" name="name" value={if
+                                       condition="$style neq ''" }{$style.name}{/if}>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for="style_color">主题色</label>
+                            <div class="controls">
+                                <input type="text" class="input-xlarge" id="style_color" name="color" value={if
+                                       condition="$style neq ''" }{$style.color}{/if}>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">主题图片</label>
+                            <div class="controls">
+                                <input id="file_upload_img" type="file" multiple="true">
+                                <img style="{if condition="$style eq ''" }display: none{/if}" id="upload_org_code_img"
+                                src="{if condition="$style neq ''"}{$style.thumb}{/if}" width="100" height="200">
+                                <input id="file_upload_image" name="thumb" type="hidden" multiple="true" value={if
+                                       condition="$style neq ''" }"{$style.thumb}"{/if}>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">主题文件</label>
+                            <div class="controls">
+                                <input id="file_upload_sty" type="file" multiple="true">
+                                <text id="style_address" style="color:{if condition="$style neq ''"}{$style.color}{/if}">{if condition="$style neq ''"}{$style.address}{/if}</text>
+                                <input id="file_upload_style" name="address" type="hidden" multiple="true" value={if
+                                       condition="$style neq ''" }"{$style.address}"{/if}>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <input type="button" class="btn btn-success" id="submit" value="确定"/>
+                            <input type="reset" class="btn" value="重置"/>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr>
+    {include file="Common/footer"}
+</div>
+<script src="__STATIC__/uploadify/jquery.uploadify.js"></script>
+<script src="__STATIC__/js/image.js"></script>
+<script src="__STATIC__/js/style.js"></script>
+<script type="text/javascript">
+    var SCOPE = {
+        'save_url': '__ADMIN__/style/save',
+        'jump_url': '__ADMIN__/style',
+        'ajax_upload_image_url': '__ADMIN__/upload/image',
+        'ajax_upload_style_url': '__ADMIN__/upload/style',
+        'ajax_upload_swf': '__STATIC__/uploadify/uploadify.swf'
+    };
+</script>
+
+</body>
+</html>

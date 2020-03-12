@@ -1,0 +1,48 @@
+<div class="span3">
+    <div class="well sidebar-nav">
+        <ul class="nav nav-list">
+            <li class="nav-header"><i class="icon-home"></i>后台主页</li>
+            <li {if condition="$nav eq 'index'"}class="active"{/if}><a href="{:url('index/index')}">主页信息</a></li>
+
+            <li class="nav-header"><i class="icon-book"></i>菜单管理</li>
+            <li {if condition="$nav eq 'menu'"}class="active"{/if}><a href="{:url('menu/index')}">菜单列表</a></li>
+            <li {if condition="$nav eq 'addmenu'"}class="active"{/if}><a href="__ADMIN__/menu/add">编辑菜单</a></li>
+
+            <li class="nav-header"><i class="icon-book"></i>推荐位管理</li>
+            <li {if condition="$nav eq 'position'"}class="active"{/if}><a href="{:url('position/index')}">推荐位列表</a></li>
+            <li {if condition="$nav eq 'addposition'"}class="active"{/if}><a href="{:url('position/add')}">编辑推荐位</a></li>
+
+            <li class="nav-header"><i class="icon-book"></i>文章管理</li>
+            <li {if condition="$nav eq 'news'"}class="active"{/if}><a href="{:url('news/index')}">文章列表</a></li>
+            <li {if condition="$nav eq 'addnews'"}class="active"{/if}><a href="{:url('news/add')}">编辑文章</a></li>
+
+            <li class="nav-header"><i class="icon-book"></i>推荐文章管理</li>
+            <li {if condition="$nav eq 'content'"}class="active"{/if}><a href="{:url('content/index')}">推荐文章列表</a></li>
+
+            <li class="nav-header"><i class="icon-file"></i>主题管理</li>
+            <li {if condition="$nav eq 'style'"}class="active"{/if}><a href="{:url('style/index')}">主题列表</a></li>
+            <li {if condition="$nav eq 'addstyle'"}class="active"{/if}><a href="{:url('style/add')}">添加主题</a></li>
+
+            <li class="nav-header"><i class="icon-file"></i>音频管理</li>
+            <li {if condition="$nav eq 'sound'"}class="active"{/if}><a href="{:url('sound/index')}">音频列表</a></li>
+            <li {if condition="$nav eq 'addsound'"}class="active"{/if}><a href="{:url('sound/add')}">添加音频</a></li>
+
+            <li class="nav-header"><i class="icon-file"></i>场景管理</li>
+            <li {if condition="$nav eq 'place'"}class="active"{/if}><a href="{:url('place/index')}">场景列表</a></li>
+            <li {if condition="$nav eq 'addplace'"}class="active"{/if}><a href="{:url('place/add')}">添加场景</a></li>
+
+            <li class="nav-header"><i class="icon-file"></i>语言管理</li>
+            <li {if condition="$nav eq 'lang'"}class="active"{/if}><a href="{:url('lang/index')}">语言列表</a></li>
+            <li {if condition="$nav eq 'addlang'"}class="active"{/if}><a href="{:url('lang/add')}">添加语言</a></li>
+
+            <li class="nav-header"><i class="icon-user"></i>用户管理</li>
+            <li {if condition="$nav eq 'user'"}class="active"{/if}><a href="{:url('user/index')}">用户列表</a></li>
+            <li {if condition="$nav eq 'adduser'"}class="active"{/if}><a href="{:url('user/add')}">添加用户</a></li>
+
+            <li class="nav-header"><i class="icon-wrench"></i>管理员管理</li>
+            <li {if condition="$nav eq 'admin'"}class="active"{/if}><a href="{:url('admin/index')}">管理员列表</a></li>
+            <li {if condition="$nav eq 'addadmin'"}class="active"{/if}><a href="{:url('admin/add')}">添加管理员</a></li>
+
+        </ul>
+    </div>
+</div>

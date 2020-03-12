@@ -1,0 +1,43 @@
+.color{
+    background: #fbc27c;
+    border-color:#fbc27c;
+}
+.active a{
+    background: #f9b35d;
+}
+.active a:hover{
+    background: #f9b35d;
+}
+.sidebar-title{
+    background: #fbc27c;
+}
+.news-title{
+    color: #fbc27c;
+}
+.news-content{
+    color: #fbc27c;
+}
+.pagination>.active>span{
+    background-color: #fbc27c;
+    border-color: #fbc27c;
+}
+.pagination>.active>span:hover{
+    background-color: #fbc27c;
+    border-color: #fbc27c;
+}
+.h2{
+    background: rgba(227, 152, 60, 0.43);
+}
+.login-logo{
+    color: #fbc27c;
+}
+.button{
+    background: #fbc27c;
+}
+.login-body{
+    background: url('/erciyuan/public/static/image/tiger.jpg') no-repeat;
+    background-size:100% 100%;
+}
+#login{
+    opacity: 0.9;
+}

@@ -1,0 +1,47 @@
+.color{
+    background: #3399FF;
+    border-color:#3399FF;
+    -webkit-transition:background-color 0.5s;
+}
+.active a{
+    background: #3388FF;
+}
+.active a:hover{
+    background: #3366FF;
+}
+.sidebar-title{
+    background: #3399F7;
+    -webkit-transition:background-color 0.5s;
+}
+.news-title{
+    color: #3399FF;
+    -webkit-transition:background-color 0.5s;
+}
+.news-content{
+    color: #3399FF;
+    -webkit-transition:background-color 0.5s;
+}
+.pagination>.active>span{
+    background-color: #3399FF;
+    border-color: #3399FF;
+}
+.pagination>.active>span:hover{
+    background-color: #3399FF;
+    border-color: #3399FF;
+}
+.h2{
+    background: rgba(51, 153, 255, 0.41);
+}
+.login-logo{
+    color: #3399FF;
+}
+.button{
+    background: #3399FF;
+}
+.login-body{
+    background: url('/erciyuan/public/static/image/leimu.jpg') no-repeat;
+    background-size:100% 100%;
+}
+#login{
+    opacity: 0.9;
+}

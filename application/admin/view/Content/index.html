@@ -1,0 +1,83 @@
+{include file="Common/head"}
+<body>
+
+{include file="Common/top"}
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        {include file="Common/nav"}
+        <div class="span9">
+            <div class="row-fluid">
+                <div class="page-header">
+                    <h1>推荐文章管理
+                        <small>推荐文章列表</small>
+                    </h1>
+                </div>
+                <div style="text-align: center">
+                    <form action="__ADMIN__/content/index" method="post">
+                        <select class="btn" name="position_id">
+                            <option value="" {if condition="$position_id eq ''" }selected="selected" {/if}>请选择推荐位</option>
+                            {foreach name="positions" item="position"}
+                            <option value="{$position.id}" {if condition="$position_id eq $position.id" }selected="selected" {/if}>{$position.name}</option>
+                            {/foreach}
+                        </select>
+                        <button type="submit" class="btn btn-success">搜索</button>
+                    </form>
+                </div>
+                <hr>
+                <form id="form-listorder">
+
+                    <button type="button" id="listorder" class="btn btn-success" style="margin-bottom: 10px;">排序</button>
+                    <table class="table table-striped table-bordered table-condensed">
+                        <thead>
+                        <tr>
+                            <th>排序</th>
+                            <th>序号</th>
+                            <th>推荐位分类</th>
+                            <th>文章标题</th>
+                            <th>更新时间</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+
+                        <tbody class="tbody">
+                        {volist name="contents" id="content"}
+                        <tr class="douban-list">
+                            <td style="text-align: center;width: 20px;"><input type="text" name="listorder[{$content.id}]" value="{$content.listorder}" style="width: 20px;height: 8px;margin-bottom: 0;border: none;text-align: center;background: none;"></td>
+                            <td>{$content.id}</td>
+                            <td>{$content.position.name}</td>
+                            <td>{$content.news.title}</td>
+                            <td>{$content.news.update_time}</td>
+                            <td><span id="status" attr-id="{$content.id}" attr-status="{$content.status}"
+                                      style="cursor: pointer">{$content.status|getCommonStatus}</span>
+                            </td>
+                            <td><a style="cursor: pointer" href="{:url('news/add',['id'=>$content.news.id])}"
+                                   style="margin: 0 auto;">修改</a></td>
+                            <td><span id="delete" attr-id="{$content.id}" attr-status="{$content.status}"
+                                      style="cursor: pointer">删除</span></td>
+                        </tr>
+                        {/volist}
+                        </tbody>
+                    </table>
+                </form>
+                <div class="green-black">{$contents->render()}</div>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    {include file="Common/footer"}
+
+</div>
+<script>
+    var SCOPE = {
+        'status_url': '__ADMIN__/content/status',
+        'delete_url': '__ADMIN__/content/status',
+        'listorder_url':'__ADMIN__/content/listorder'
+    }
+</script>
+</body>
+</html>

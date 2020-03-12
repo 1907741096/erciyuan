@@ -1,0 +1,51 @@
+{include file="Common/head"}
+<body>
+
+{include file="Common/top"}
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        {include file="Common/nav"}
+        <div class="span9">
+            <div class="row-fluid">
+                <div class="page-header">
+                    <h1>场景管理 <small>编辑场景</small></h1>
+                </div>
+
+
+                <form class="form-horizontal" id="form">
+                    <fieldset>
+                        <div class="control-group">
+                            <label class="control-label" for="item">场景名称</label>
+                            <div class="controls">
+                                <input type="text" class="input-xlarge" id="item" name="name" value={if condition="$place neq ''"}{$place.name}{/if} >
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <input type="hidden" name="id" value={if condition="$place neq ''"}{$place.id}{/if} >
+                            <input type="button" class="btn btn-success" id="submit" value="确定"/>
+                            <input type="reset" class="btn" value="重置" />
+                        </div>
+                    </fieldset>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    {include file="Common/footer"}
+
+</div>
+<script>
+    var SCOPE={
+        'save_url':'__ADMIN__/place/save',
+        'jump_url':'__ADMIN__/place'
+    };
+</script>
+
+</body>
+</html>

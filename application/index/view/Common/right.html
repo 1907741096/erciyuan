@@ -1,0 +1,51 @@
+<div class="col-md-4 sidebar-gutter">
+    <aside>
+        <!-- sidebar-widget -->
+        <div class="sidebar-widget">
+            <img src="{$styleThumb}" id="audio" attr-id="1" class="right-img">
+            <!--<h3 class="sidebar-title">About Me</h3>-->
+            <!--<div class="widget-container widget-about">-->
+                <!--<a href="post.html"><img src="images/author.jpg" alt=""></a>-->
+                <!--<h4>Jamie Mooz</h4>-->
+                <!--<div class="author-title">Designer</div>-->
+                <!--<p>While everyone’s eyes are glued to the runway, it’s hard to ignore that there are major fashion moments on the front row too.</p>-->
+            <!--</div><h3 class="sidebar-title">About Me</h3>-->
+            <!--<div class="widget-container widget-about">-->
+                <!--<a href="post.html"><img src="images/author.jpg" alt=""></a>-->
+                <!--<h4>Jamie Mooz</h4>-->
+                <!--<div class="author-title">Designer</div>-->
+                <!--<p>While everyone’s eyes are glued to the runway, it’s hard to ignore that there are major fashion moments on the front row too.</p>-->
+            <!--</div>-->
+        </div>
+        <!-- sidebar-widget -->
+        <div class="sidebar-widget">
+            <h3 class="sidebar-title">站长推荐</h3>
+            <div class="widget-container">
+                {volist name="CommendNews" id="CommendNew"}
+                    <article class="widget-post">
+                        <div class="post-image">
+                            <a href="__INDEX__/news/index?id={$CommendNew.news.id}"><img src="{$CommendNew.news.thumb}" alt=""></a>
+                        </div>
+                        <div class="post-body">
+                            <h2><a href="__INDEX__/news/index?id={$CommendNew.news.id}">{$CommendNew.news.title|gettitle}</a></h2>
+                            <div class="post-meta">
+                                <span><i class="fa fa-clock-o"></i> {$CommendNew.news.update_time}</span> <span><a href="#"><i class="fa fa-comment-o"></i>??</a></span>
+                            </div>
+                        </div>
+                    </article>
+                {/volist}
+            </div>
+        </div>
+        <!-- sidebar-widget -->
+        <div class="sidebar-widget">
+            <h3 class="sidebar-title">主题选择</h3>
+            <div class="widget-container">
+                <ul style="margin:0 auto;text-align: center;padding: 0">
+                    {volist name="styles" id="style"}
+                        <li><a style="color: {$style.color}; cursor: pointer" id="change-style" attr-id="{$style.id }">{$style.name}</a></li>
+                    {/volist}
+                </ul>
+            </div>
+        </div>
+    </aside>
+</div>
