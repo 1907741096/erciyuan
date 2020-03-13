@@ -15,7 +15,7 @@ class Login extends Controller
 {
     public function index(){
         if(session('user')&&session('user')!=null){
-            jump('/erciyuan/public/index.php/index');
+            jump('/erciyuan/public/index.php/admin');
         }else{
             $style_id=config('setting.default_style');
             if(session('style_id')&&session('style_id')!=null){
