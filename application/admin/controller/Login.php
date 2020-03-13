@@ -12,7 +12,7 @@ use think\Controller;
 class Login extends Controller
 {
     public function index(){
-        if(session('admin')&&session('admin')!=null){
+        if(session('user')&&session('user')!=null){
             jump('index');
         }
         return $this->fetch();
@@ -26,7 +26,7 @@ class Login extends Controller
         }
     }
     public function loginout(){
-        session('admin', null);
+        session('user', null);
         jump('/erciyuan/public/index.php/admin/login');
     }
     public function check($data){
