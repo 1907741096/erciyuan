@@ -27,7 +27,7 @@ class Login extends Controller
     }
     public function loginout(){
         session('user', null);
-        jump('/erciyuan/public/index.php/admin/login');
+        jump('/erciyuan/public/index.php/index/index/index');
     }
     public function check($data){
         if(!$data['username']||trim($data['username'])==''){
