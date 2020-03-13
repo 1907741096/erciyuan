@@ -34,7 +34,7 @@ $('#button-login-user').click(function(){
     var url="/erciyuan/public/index.php/index/login/checklogin";
     $.post(url,data,function(result){
         if(result.status===1){
-            dialog.success(result.message,'/erciyuan/public/index.php/index');
+            dialog.success(result.message,'/erciyuan/public/index.php/admin');
             getsound(3);
         }else{
             dialog.error(result.message);
